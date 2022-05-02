@@ -37,7 +37,7 @@ I decided to incorporate this into the next chunk of code
 
 ```{r dependencies, echo=TRUE, message=FALSE, warning=FALSE}
 # initialise renv
-renv::init() 
+renv::init() ## note - if you've setup renv in RStudio by ticking the appropriate box, this line might be unnecessary.
 
 # install or load packages
 options(repos="https://cran.rstudio.com" )
