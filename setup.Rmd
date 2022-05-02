@@ -1,5 +1,5 @@
 ---
-title: "setup"
+title: "renv (plus git) setup"
 author: "Richard Ramsey"
 date: "02/05/2022"
 output: html_document
@@ -21,7 +21,7 @@ https://kevinushey-2020-rstudio-conf.netlify.app/slides.html#146
 
 only necessary once.
 
-```{r install renv}
+```{r install-renv}
 # install.packages("renv")
 ```
 
@@ -29,7 +29,7 @@ only necessary once.
 
 I decided to incorporate this into the next chunk of code
 
-```{r initialise renv}
+```{r initialise-renv}
 # renv::init()
 ```
 
@@ -50,14 +50,14 @@ renv::snapshot()
 
 ## do some coding ##
 
-```{r load some data}
+```{r load-some-data}
 data <- mtcars
 head(data)
 ```
 
 ## print session info ##
 
-```{r session info}
+```{r session-info}
 sessionInfo()
 ```
 
