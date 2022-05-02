@@ -50,7 +50,7 @@ renv::snapshot()
 
 ## do some coding ##
 
-```{r}
+```{r load some data}
 data <- mtcars
 head(data)
 ```
