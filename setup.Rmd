@@ -1,0 +1,63 @@
+---
+title: "setup"
+author: "Richard Ramsey"
+date: "02/05/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This file tries to test the renv package to see how it works and how it could be incorporated into one's workflow. And also link it to a version control system (git).
+
+It follows these:
+
+https://www.youtube.com/watch?v=yjlEbIDevOs
+
+https://kevinushey-2020-rstudio-conf.netlify.app/slides.html#146
+
+## install renv ##
+
+only necessary once.
+
+```{r install renv}
+# install.packages("renv")
+```
+
+## initialise renv ##
+
+I decided to incorporate this into the next chunk of code
+
+```{r initialise renv}
+# renv::init()
+```
+
+## load packages that we will be using ##
+
+```{r dependencies, echo=TRUE, message=FALSE, warning=FALSE}
+# initialise renv
+renv::init() 
+
+# install or load packages
+options(repos="https://cran.rstudio.com" )
+if (!require("install.load")){install.packages("install.load")} 
+install_load("here", "tidyverse", "RColorBrewer", "patchwork")
+
+# take a snapshot and update the lock.file
+renv::snapshot()
+```
+
+## do some coding ##
+
+```{r}
+data <- mtcars
+head(data)
+```
+
+## print session info ##
+
+```{r session info}
+sessionInfo()
+```
+
