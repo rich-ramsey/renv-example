@@ -37,7 +37,7 @@ I decided to incorporate this into the next chunk of code
 
 ```{r dependencies, echo=TRUE, message=FALSE, warning=FALSE}
 # initialise renv
-renv::init() ## note - if you've setup renv in RStudio by ticking the appropriate box, this line might be unnecessary.
+# renv::init() ## note - if you've setup renv in RStudio by ticking the appropriate box, this line might be unnecessary.
 
 # install or load packages
 options(repos="https://cran.rstudio.com" )
@@ -45,15 +45,45 @@ if (!require("install.load")){install.packages("install.load")}
 install_load("here", "tidyverse", "RColorBrewer", "patchwork")
 
 # take a snapshot and update the lock.file
-renv::snapshot()
+# renv::snapshot()
 ```
+
+## take a snapshot and update the lockfile ##
+
+```{r}
+# renv::snapshot()
+```
+
+## try the renv::restore function ##
+
+```{r}
+renv::restore()
+```
+
 
 ## do some coding ##
 
 ```{r load-some-data}
-data <- mtcars
+data <- as_tibble(mtcars) %>% 
+  mutate(cyl = factor(cyl))
 head(data)
+str(data)
 ```
+
+## plot some stuff ##
+
+```{r plot}
+p1 <- ggplot(data, 
+             aes(x=hp, y=mpg, colour=cyl, shape=cyl)) +
+  geom_point() +
+  theme_bw() +
+  scale_colour_brewer(palette = "Dark2") +
+  facet_wrap(~cyl)
+p1
+
+ggsave("figures/p1.jpeg")
+```
+
 
 ## print session info ##
 
